@@ -29,7 +29,7 @@ export default function Footer() {
             <a href='#'><YouTubeIcon /></a>                        
           </div>
         </div>
-        <div className='flex flex-column justify-around'>
+        <div className='flex flex-col justify-around'>
             <div className='footer-links'>
                 <ul className='list-none'>
                     <li className="inline-block mr-5 text-red-600"><a href='#'>About Us</a></li>
