@@ -4,15 +4,16 @@ import Button from "@mui/material/Button/Button";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { Suspense } from "react";
 
-export default function Confirmation() {
-    const searchParams = useSearchParams();
-    const imageUrl = searchParams.get('image');
-    const name = searchParams.get('name');
-    const date = searchParams.get('date');
-    const time = searchParams.get('time');
+function WithSearchParams() {
+  const searchParams = useSearchParams();
+  const imageUrl = searchParams.get("image");
+  const name = searchParams.get("name");
+  const date = searchParams.get("date");
+  const time = searchParams.get("time");
 
   return (
     <>
@@ -28,12 +29,24 @@ export default function Confirmation() {
             </h2>
           </div>
           <div className="border-2 rounded p-2 m-auto flex">
-            <div className="mr-4">{imageUrl && (<Image src={imageUrl} alt="Physician Image" width={100} height={100} />)}</div>
+            <div className="mr-4">
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  alt="Physician Image"
+                  width={100}
+                  height={100}
+                />
+              )}
+            </div>
             <div>
-                <b>Specialist:</b> {name}<br /> 
-                <b>Date:</b> {date}<br />
-                <b>Time:</b> {time}<br />
-                <b>Visit Type:</b> 40-minute Video Visit
+              <b>Specialist:</b> {name}
+              <br />
+              <b>Date:</b> {date}
+              <br />
+              <b>Time:</b> {time}
+              <br />
+              <b>Visit Type:</b> 40-minute Video Visit
             </div>
           </div>
           <p>
@@ -54,17 +67,17 @@ export default function Confirmation() {
                 simply join through your web browser.
               </li>
               <li>
-                <b>Test Ahead:</b> Check your audio and video with Zoom's Test Meeting.
+                <b>Test Ahead:</b> Check your audio and video with Zoom's Test
+                Meeting.
               </li>
               <li>
-                <b>Join Your Visit:</b> Click the link from your email, text or app to join.
+                <b>Join Your Visit:</b> Click the link from your email, text or
+                app to join.
               </li>
             </ol>
             <p>
-                <b>
-                    Need Help?
-                </b>
-                Contact us here or call us at 888-691-7867
+              <b>Need Help?</b>
+              Contact us here or call us at 888-691-7867
             </p>
           </div>
           <div className="text-center w-full">
@@ -77,5 +90,13 @@ export default function Confirmation() {
       </div>
       <Footer />
     </>
+  );
+}
+
+export default function Confirmation() {
+  return (
+    <Suspense>
+      <WithSearchParams />
+    </Suspense>
   );
 }
