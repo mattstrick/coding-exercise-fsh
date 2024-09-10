@@ -42,7 +42,11 @@ const MOCK_DATA = [
   },
 ];
 
-export default function ProviderList() {
+type Props = {
+    date: string;
+}
+
+export default function ProviderList({date}:Props) {
   return (
     <div>
       {MOCK_DATA.map((provider) => (
@@ -53,6 +57,7 @@ export default function ProviderList() {
           specialties={provider.specialties}
           times={provider.times}
           alt={provider.alt}
+          date={date}
         />
       ))}
     </div>

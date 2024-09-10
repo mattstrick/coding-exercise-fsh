@@ -55,7 +55,7 @@ export default function Home() {
               </FormControl>
               <Calendar date={date} setDate={setDate} />
             </div>
-            <div className="w-60">
+            <div className="w-80">
               <div>
                 <Switch
                   checked={showSpecialists}
@@ -68,7 +68,7 @@ export default function Home() {
                 <DateList date={date} setDate={setDate} />                
               </div>
               <div>
-                <ProviderList />
+                <ProviderList date={date.toString()} />
               </div>
             </div>
           </div>

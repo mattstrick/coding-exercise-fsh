@@ -7,6 +7,7 @@ type Props = {
   specialties: Array<string>;
   image: string;
   alt: string;
+  date: string;
 };
 
 export default function ProviderCard({
@@ -15,7 +16,9 @@ export default function ProviderCard({
   specialties,
   image,
   alt,
+  date,
 }: Props) {
+    
     // TODO: Trim after a certain length
     const trimSpecialties = (allSpecialties: Array<string>) => {
         return (
@@ -27,15 +30,15 @@ export default function ProviderCard({
 
   return (
     <div>
-      <div className="flex bg-[#ffffff]">
+      <div className="flex bg-[#ffffff] mb-2">
         <Image
           src={image}
           alt={alt}
-          width={50}
-          height={50}
+          width={100}
+          height={100}
           className="border-l rounded-l"
         />
-        <div className="border-r border-t border-b rounded-r">
+        <div className="border-r border-t border-b rounded-r p-4">
           <h1 className="text-xl">{name}</h1>
           <span>
             <b>Specialties:</b> {trimSpecialties(specialties)}
@@ -44,8 +47,8 @@ export default function ProviderCard({
       </div>
       <div className="mb-4">
         {times.map((time, index) => (            
-            <Link href={`/confirmation?name=${name}&image=${image}&date=${'Tuesday, September 10, 2024'}&time=${time}`} key={index}>
-            <div>
+            <Link href={`/confirmation?name=${name}&image=${image}&date=${date}&time=${time}`} key={index}>
+            <div className="rounded-lg border-cyan-500 border-2 mr-2 inline-block">
                 {time}
             </div>
             </Link>
