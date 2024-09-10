@@ -12,6 +12,10 @@ type Props = {
 export default function Calendar({date, setDate}: Props) {
   const [value, setValue] = React.useState<Dayjs | null>(dayjs(date));
 
+  React.useEffect(() => {
+    setValue(date)
+  }, [date])
+
   const handleChange = (newValue: Dayjs) => {
     setValue(newValue);
     setDate(newValue);

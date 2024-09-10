@@ -54,7 +54,7 @@ export default function Home() {
               </FormControl>
               <Calendar date={date} setDate={setDate} />
             </div>
-            <div>
+            <div className="w-56">
               <div>
                 <Switch
                   checked={showSpecialists}

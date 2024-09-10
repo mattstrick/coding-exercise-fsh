@@ -49,7 +49,7 @@ export default function DateList({ date, setDate }: Props) {
       {daysToDisplay.map((dayToDisplay) => (
         <div
           key={dayToDisplay.toString()}
-          className={`w-16 rounded-lg border-cyan-500 border-2 mr-2 ${
+          className={`w-20 rounded-lg border-cyan-500 border-2 mr-2 ${
             dayToDisplay.isSame(value, "d") ? "bg-cyan-500 text-[#ffffff]" : ""
           }`}
           data-day={dayToDisplay.toString()}
