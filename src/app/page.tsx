@@ -1,6 +1,6 @@
 "use client";
 
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import FormControl from "@mui/material/FormControl/FormControl";
@@ -11,6 +11,7 @@ import Calendar from "./components/calendar";
 import dayjs from "dayjs";
 import Switch from "@mui/material/Switch";
 import DateList from "./components/dateList";
+import ProviderList from "./components/providerList";
 
 export default function Home() {
   const [date, setDate] = React.useState(dayjs(Date.now()));
@@ -54,7 +55,7 @@ export default function Home() {
               </FormControl>
               <Calendar date={date} setDate={setDate} />
             </div>
-            <div className="w-56">
+            <div className="w-60">
               <div>
                 <Switch
                   checked={showSpecialists}
@@ -63,8 +64,11 @@ export default function Home() {
                 />{" "}
                 Show only my specialists
               </div>
+              <div className="mb-4">
+                <DateList date={date} setDate={setDate} />                
+              </div>
               <div>
-                <DateList date={date} setDate={setDate} />
+                <ProviderList />
               </div>
             </div>
           </div>
